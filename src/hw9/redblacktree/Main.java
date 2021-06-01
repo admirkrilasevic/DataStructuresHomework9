@@ -13,6 +13,7 @@ public class Main {
 		Student[] students = new Student[1000000];
 		int i = 0;
 		
+		//Using BufferedReader to read csv data and put into an array
 		BufferedReader csvReader = new BufferedReader(new FileReader("src/globaluniversitystudents.csv"));
 		while (i < students.length) {
 
@@ -30,10 +31,12 @@ public class Main {
 		
 		RedBlackTree<Integer, Student> rbt = new RedBlackTree<Integer, Student>();
 		
+		//Putting the students from the array into the tree
 		for (int j = 0; j < students.length; j++) {
 			rbt.put(students[j].getStudentID(), students[j]);
 		}
 		
+		//Console prompts
 		System.out.println("Enter the ID of the student you want to retrieve: ");
 		Scanner scan = new Scanner(System.in);
 		int id = scan.nextInt();

@@ -1,11 +1,12 @@
 package hw9.binarysearchtree;
 
+//Node class used to implement the binary search tree
 public class Node<Key extends Comparable<Key>, Value> {
 	
-	   public Key key;             				// the node's key 
-	   public Value value;            			// the value associated with the key
-	   public Node<Key, Value> left, right;     // references to left and right child
-	   public int size = 1;                		// size of the node
+	   public Key key;             				
+	   public Value value;            			
+	   public Node<Key, Value> left, right;    
+	   public int size = 1;                		
 	   
 	   /* Node constructor */
 	   public Node(Key key, Value value) {

@@ -1,5 +1,6 @@
 package hw9.redblacktree;
 
+//Red-black tree implementation
 public class RedBlackTree<Key extends Comparable<Key>, Value> {
 	
 	private Node<Key, Value> root;
@@ -7,7 +8,7 @@ public class RedBlackTree<Key extends Comparable<Key>, Value> {
 	private static final boolean BLACK = false;
 	private int steps = 1;
 	
-	/* Retrieve a value associated with a given key */
+	//Used to retrieve a value associated with a given key
 	public Value get(Key key) {
 		
 		int step = 1;;
@@ -30,7 +31,7 @@ public class RedBlackTree<Key extends Comparable<Key>, Value> {
 		return null;							
 	}
 	
-	/* Orient a (temporarily) right-leaning red link to lean left */
+	//Orient a right-leaning red link to lean left 
 	private Node<Key, Value> rotateLeft(Node<Key, Value> h) {
 		Node<Key, Value> x = h.right;			
 		h.right = x.left;						
@@ -40,7 +41,7 @@ public class RedBlackTree<Key extends Comparable<Key>, Value> {
 		return x;								
 	}
 	
-	/* Orient a left-leaning red link to (temporarily) lean right */
+	//Orient a left-leaning red link to lean right 
 	private Node<Key, Value> rotateRight(Node<Key, Value> h) {
 		Node<Key, Value> x = h.left;			
 		h.left= x.right;						
@@ -50,14 +51,14 @@ public class RedBlackTree<Key extends Comparable<Key>, Value> {
 		return x;								
 	}
 	
-	/*  Split a (temporary) 4-node */
+	//Split a 4-node 
 	private void flipColors(Node<Key, Value> h) {
 		h.color = RED;					
 		h.right.color = BLACK;			
 		h.left.color = BLACK;			
 	}
 	
-	/* Return whether a given node has a red link */
+	//Return whether a given node has a red link 
 	private boolean isRed(Node<Key, Value> x) {
 		if (x == null) {				
 			return false;				
@@ -65,12 +66,12 @@ public class RedBlackTree<Key extends Comparable<Key>, Value> {
 		return x.color == RED;			
 	}
 	
-	/* Add a value to the red-black tree under a given key */
+	//Add a value to the red-black tree under a given key 
 	public void put(Key key, Value value) {
 		root = put(root, key, value);												
 	}
 	
-	/* Private put() method */
+	//Private put() method 
 	private Node<Key, Value> put(Node<Key, Value> h, Key key, Value value) {
 		if (h == null) {															
 			return new Node<Key, Value>(key, value, RED);							
@@ -85,7 +86,7 @@ public class RedBlackTree<Key extends Comparable<Key>, Value> {
 			h.value = value;												
 		}
 		
-		/* Color balancing */
+		//Color balancing 
 		if (isRed(h.right) && !isRed(h.left)) {									
 			h = rotateLeft(h);														
 		}
@@ -98,7 +99,8 @@ public class RedBlackTree<Key extends Comparable<Key>, Value> {
 		
 		return h;																	
 	}
-
+	
+	//Getter for steps used to see how many steps were taken to find a key within the tree
 	public int getSteps() {
 		return steps;
 	}

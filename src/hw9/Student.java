@@ -2,6 +2,7 @@ package hw9;
 
 public class Student {
 	
+	//Declaring class variables
 	private int studentID;
 	private String name;
 	private String dateOfBirth;
@@ -10,12 +11,7 @@ public class Student {
 	private String departmentName;
 	private int yearOfEnrolment;
 	
-	
-	
-	public int getStudentID() {
-		return studentID;
-	}
-
+	//Class constructor
 	public Student(int studentID, String name, String dateOfBirth, String universityName, String departmentCode,
 			String departmentName, int yearOfEnrolment) {
 		this.studentID = studentID;
@@ -27,6 +23,7 @@ public class Student {
 		this.yearOfEnrolment = yearOfEnrolment;
 	}
 	
+	//toString() function used while printing a student from the tree
 	@Override
 	public String toString() {
 		return "Student ID: " + this.studentID + "\n"  + 
@@ -37,5 +34,10 @@ public class Student {
 				"Department: " + this.departmentName + "\n" +
 				"Year of enrolment: " + this.yearOfEnrolment;
 	}
+	
+	//Getter function for studentID to be used while obtaining keys for populating the trees
+		public int getStudentID() {
+			return studentID;
+		}
 
 }

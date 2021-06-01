@@ -1,11 +1,12 @@
 package hw9.redblacktree;
 
+//Node class used to implement the red-black tree
 public class Node<Key extends Comparable<Key>, Value> {
 	
-	public Key key;             			// the node's key 
-	public Value value;            			// the value associated with the key
-	public Node<Key, Value> left, right;    // references to left and right child
-	public boolean color;					// the node's color
+	public Key key;             			
+	public Value value;            			
+	public Node<Key, Value> left, right;    
+	public boolean color;					
 	
 	/* Node constructor */
 	public Node(Key key, Value value, boolean color) {
